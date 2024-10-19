@@ -1,0 +1,269 @@
+﻿<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Carrinho</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+        <li class="breadcrumb-item active text-white">Carrinho</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                <img src="/img/vegetable-item-3.png" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="Banana">
+                            </div>
+                        </th>
+                        <td><p class="mb-0 mt-4">Banana</p></td>
+                        <td><p class="mb-0 mt-4 price">R$2,20</p></td>
+                        <td>
+                            <div class="input-group quantity mt-4" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center border-0 quantity-input" value="1">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td><p class="mb-0 mt-4 total">R$2,20</p></td>
+                        <td>
+                            <button class="btn btn-md rounded-circle bg-light border mt-4 btn-remove">
+                                <i class="fa fa-times text-danger"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                <img src="/img/fruite-item-2.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="Amora">
+                            </div>
+                        </th>
+                        <td><p class="mb-0 mt-4">Amora</p></td>
+                        <td><p class="mb-0 mt-4 price">R$7,99</p></td>
+                        <td>
+                            <div class="input-group quantity mt-4" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center border-0 quantity-input" value="1">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td><p class="mb-0 mt-4 total">R$7,99</p></td>
+                        <td>
+                            <button class="btn btn-md rounded-circle bg-light border mt-4 btn-remove">
+                                <i class="fa fa-times text-danger"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                <img src="/img/fruite-item-5.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="Uva">
+                            </div>
+                        </th>
+                        <td><p class="mb-0 mt-4">Uva</p></td>
+                        <td><p class="mb-0 mt-4 price">R$7,99</p></td>
+                        <td>
+                            <div class="input-group quantity mt-4" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center border-0 quantity-input" value="1">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td><p class="mb-0 mt-4 total">R$7,99</p></td>
+                        <td>
+                            <button class="btn btn-md rounded-circle bg-light border mt-4 btn-remove">
+                                <i class="fa fa-times text-danger"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-5">
+            <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Código de Cupom" id="cupomCode">
+            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary btn-aplicar-cupom" type="button">Aplicar Cupom</button>
+        </div>
+        <div class="row g-4 justify-content-end">
+            <div class="col-8"></div>
+            <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                <div class="bg-light rounded">
+                    <div class="p-4">
+                        <h1 class="display-6 mb-4">Total <span class="fw-normal">Carrinho</span></h1>
+                        <div class="d-flex justify-content-between mb-4">
+                            <h5 class="mb-0 me-4">Subtotal:</h5>
+                            <p class="mb-0 subtotal">R$96,00</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-0 me-4">Frete</h5>
+                            <div class="">
+                                <p class="mb-0 frete">Valor Frete: R$3,00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                        <h5 class="mb-0 ps-4 me-4">Total</h5>
+                        <p class="mb-0 pe-4 total-carrinho">R$99,00</p>
+                    </div>
+                    <a href="@Url.Action("Checkout", "Shop")" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Finalizar</a
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart Page End -->
+<!-- JavaScript Section -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        // Função para formatar o valor monetário
+    function formatarMoeda(valor) {
+        return 'R$' + valor.toFixed(2).replace('.', ',');
+    }
+
+    // Atualizar o total ao alterar a quantidade
+    function updateCartTotal() {
+        var total = 0;
+        $('tbody tr').each(function () {
+            var priceText = $(this).find('.price').text().replace('R$', '').trim();
+            var price = parseFloat(priceText.replace('.', '').replace(',', '.'));
+
+            if (isNaN(price)) {
+                price = 0;
+            }
+
+            var quantity = parseInt($(this).find('.quantity-input').val());
+            if (isNaN(quantity) || quantity < 1) {
+                quantity = 1;
+            }
+
+            var subtotal = price * quantity;
+            $(this).find('.total').text(formatarMoeda(subtotal));
+            total += subtotal;
+        });
+
+        var frete = 3.00;
+        total += frete;
+
+        $('.total-carrinho').text(formatarMoeda(total));
+        $('.subtotal').text(formatarMoeda(total - frete));
+
+        if (total > 300) {
+            frete = 0;
+            $('.frete').text("Frete grátis!");
+        } else {
+            $('.frete').text("Valor Frete: R$" + frete.toFixed(2).replace('.', ','));
+        }
+    }
+
+    $('.btn-plus').on('click', function () {
+        var input = $(this).closest('.input-group').find('.quantity-input');
+        var value = parseInt(input.val());
+        input.val(value + 1);
+        updateCartTotal();
+    });
+
+    $('.btn-minus').on('click', function () {
+        var input = $(this).closest('.input-group').find('.quantity-input');
+        var value = parseInt(input.val());
+        if (value > 1) {
+            input.val(value - 1);
+            updateCartTotal();
+        }
+    });
+
+    $('.btn-remove').on('click', function () {
+        $(this).closest('tr').remove();
+        updateCartTotal();
+    });
+
+    $('.btn-aplicar-cupom').on('click', function () {
+        var cupom = $('#cupomCode').val();
+        alert('Cupom aplicado: ' + cupom);
+    });
+
+    // Função para capturar os dados do pedido
+    function capturarPedido() {
+        var pedido = [];
+        $('tbody tr').each(function () {
+            var nome = $(this).find('td:nth-child(2)').text().trim();
+            var preco = $(this).find('.price').text().replace('R$', '').trim();
+            var quantidade = $(this).find('.quantity-input').val().trim();
+            var total = $(this).find('.total').text().replace('R$', '').trim();
+
+            pedido.push({
+                nome: nome,
+                preco: parseFloat(preco.replace(',', '.')),
+                quantidade: parseInt(quantidade),
+                total: parseFloat(total.replace(',', '.'))
+            });
+        });
+        return pedido;
+    }
+
+    // Enviar pedido para o servidor ao clicar em "Finalizar"
+    $('.btn-finalizar').on('click', function (e) {
+        e.preventDefault();
+        var pedido = capturarPedido();
+        var frete = parseFloat($('.frete').text().replace('Valor Frete: R$', '').trim().replace(',', '.'));
+
+        // Enviar via AJAX para o backend
+        $.ajax({
+            url: '/caminho-para-o-endpoint', // Substituir pelo endpoint real do backend
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                pedido: pedido,
+                frete: frete,
+                total: parseFloat($('.total-carrinho').text().replace('R$', '').replace(',', '.'))
+            }),
+            success: function (response) {
+                alert('Pedido realizado com sucesso!');
+                // Redirecionar para uma página de confirmação, se necessário
+                window.location.href = '/pagina-de-confirmacao';
+            },
+            error: function (error) {
+                alert('Ocorreu um erro ao finalizar o pedido.');
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        updateCartTotal();
+    });
+</script>
