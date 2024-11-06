@@ -2,9 +2,9 @@
 
 namespace PIM.Controllers
 {
-    public class TestimonialController : Controller
+    public class ProfileController : Controller
     {
-        public IActionResult Testimonial()
+        public IActionResult Profile()
         {
             return View();
         }

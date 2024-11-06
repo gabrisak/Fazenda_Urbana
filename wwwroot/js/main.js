@@ -163,33 +163,26 @@
         $('tbody tr').each(function () {
             // Extrair o preço e substituir qualquer vírgula por ponto
             var priceText = $(this).find('.price').text().replace('R$', '').trim();
-            var price = parseFloat(priceText.replace('.', '').replace(',', '.')); // Formatação correta para o preço
+            var price = parseFloat(priceText.replace('.', '').replace(',', '.'));
 
-            // Verificar se o preço foi capturado corretamente
             if (isNaN(price)) {
                 price = 0;
             }
 
-            // Capturar a quantidade do input
             var quantity = parseInt($(this).find('.quantity-input').val());
             if (isNaN(quantity) || quantity < 1) {
-                quantity = 1; // Definir valor mínimo de 1
+                quantity = 1;
             }
 
-            // Calcular o subtotal (preço * quantidade)
             var subtotal = price * quantity;
 
-            // Atualizar o subtotal no HTML
             $(this).find('.total').text(formatarMoeda(subtotal));
-
-            // Somar ao total geral do carrinho
             total += subtotal;
         });
 
-        var frete = 3.00; // Valor do frete fixo
+        var frete = 3.00;
         total += frete;
 
-        // Atualizar o total geral no HTML
         $('.total-carrinho').text(formatarMoeda(total));
         $('.subtotal').text(formatarMoeda(total - frete));
     }
@@ -219,10 +212,10 @@
 
     // Aplicar cupom (Exemplo básico)
     $('.btn-aplicar-cupom').on('click', function () {
-        var cupomCode = $('#cupomCode').val(); // Seletor correto para o campo de cupom
+        var cupomCode = $('#cupomCode').val();
         if (cupomCode === 'DESCONTO10') {
             var total = parseFloat($('.total-carrinho').text().replace('R$', '').replace('.', '').replace(',', '.'));
-            var desconto = total * 0.10; // Aplica 10% de desconto
+            var desconto = total * 0.10;
             total = total - desconto;
             $('.total-carrinho').text(formatarMoeda(total));
             alert('Cupom aplicado com sucesso!');

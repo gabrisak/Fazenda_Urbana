@@ -9,7 +9,9 @@ namespace PIM.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            UsuarioModel home = new UsuarioModel();
+
+            return View(home);
         }
 
      
