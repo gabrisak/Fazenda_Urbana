@@ -1,4 +1,5 @@
-﻿<!-- Single Page Header start -->
+﻿@model PIM.Models.Usuario
+
 <div class="container-fluid page-header py-5">
     <h1 class="text-center text-white display-6">Cadastro</h1>
     <ol class="breadcrumb justify-content-center mb-0">
@@ -6,8 +7,7 @@
         <li class="breadcrumb-item active text-white">Cadastro</li>
     </ol>
 </div>
-<!-- Single Page Header End -->
-<!-- Registration Start -->
+
 <div class="container-fluid contact py-5">
     <div class="container py-5">
         <div class="p-5 bg-light rounded">
@@ -20,15 +20,28 @@
                 </div>
                 <div class="col-lg-6 mx-auto">
                     <div class="h-100 rounded">
-                        <form action="" method="post" class="">
-                            <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Nome Completo" required>
-                            <input type="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque Seu E-mail" required>
-                            <input type="password" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque Sua Senha" required>
-                            <input type="password" class="w-100 form-control border-0 py-3 mb-4" placeholder="Confirme Sua Senha" required>
+                        @using (Html.BeginForm("Cadastro", "Account", FormMethod.Post, new { @class = "" }))
+                        {
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nome)
+                                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email)
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Senha)
+                                @Html.PasswordFor(model => model.Senha, new { @class = "w-100 form-control border-0 py-3 mb-4" })
+                                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                            </div>
                             <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary" type="submit">Cadastrar</button>
-                        </form>
+                        }
                         <div class="text-center mt-3">
-                            <p>Já tem uma conta? <a href="@Url.Action("UserLogin", "User")" class="text-primary">Faça Login</a></p>
+                            <p>Já tem uma conta? @Html.ActionLink("Faça Login", "UserLogin", "User", null, new { @class = "text-primary" })</p>
                         </div>
                     </div>
                 </div>
@@ -36,4 +49,3 @@
         </div>
     </div>
 </div>
-<!-- Registration End -->

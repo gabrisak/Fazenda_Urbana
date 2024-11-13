@@ -1,10 +1,10 @@
 ﻿namespace PIM.Models
 {
-    public class UsuarioModel
+    public class Usuario
     {
         public int Id { get; set; }
+        public string Nome { get; set; }
         public string Email { get; set; }
-        public string Senha { get; set; } // Idealmente, a senha seria armazenada com hash
+        public string Senha { get; set; }
     }
-
 }
