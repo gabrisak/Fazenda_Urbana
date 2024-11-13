@@ -1,12 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SeuProjeto.Models;
+﻿using System.Data.Entity;
 
-namespace PIM.Data
+public class ApplicationDbContext : DbContext
 {
-    public class ApplicationDbContext : DbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+    public DbSet<Usuários> Usuários { get; set; }
 
-        public DbSet<Usuario> Usuarios { get; set; }
-    }
-}
+    public ApplicationDbContext() : base("Server=GABI\\SQL14;Database=BD_FAZENDA;Trusted_Connection=True;") { }
+}s

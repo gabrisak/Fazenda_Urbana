@@ -19,16 +19,18 @@
                 </div>
                 <div class="col-lg-6 mx-auto">
                     <div class="h-100 rounded">
-                        <form action="" class="">
-                            <input type="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque seu E-mail" required>
-                            <input type="password" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque sua Senha" required>
+                        <!-- Formulário de login -->
+                        <form action="@Url.Action("Login", "Account")" method="post">
+                            <input type="email" name="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque seu E-mail" required>
+                            <input type="password" name="password" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque sua Senha" required>
                             <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary" type="submit">Entrar</button>
                         </form>
+                        <!-- Links adicionais -->
                         <div class="text-center mt-3">
-                            <a href="@Url.Action("ForgotUser", "User" )" class="text-primary">Esqueceu a senha?</a>
+                            <a href="@Url.Action("ForgotUser", "User")" class="text-primary">Esqueceu a senha?</a>
                         </div>
                         <div class="text-center mt-3">
-                            <p>Não tem uma conta? <a href="@Url.Action("NewUser", "User" )" class="text-primary">Cadastre-se</a></p>
+                            <p>Não tem uma conta? <a href="@Url.Action("NewUser", "User")" class="text-primary">Cadastre-se</a></p>
                         </div>
                     </div>
                 </div>
