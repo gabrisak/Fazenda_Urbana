@@ -1,9 +1,9 @@
-﻿using System.Data.Entity;
-using PIM.Data;
+﻿using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext
 {
-    public DbSet<Usuarios> Usuarios { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
 
-    public ApplicationDbContext() : base("Data Source=GABI\\SQL14;Initial Catalog=BD_FAZENDA;Integrated Security=True;Encrypt=False;") { }
-}s
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options) { }
+}

@@ -6,7 +6,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using PIM.Models;
 using PIM.Repository;
-using PIM.Data; // Adicionado o namespace da pasta "Data"
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +25,7 @@ builder.Services.AddScoped<DataService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure o pipeline de requisição HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
