@@ -34,5 +34,5 @@ public class UserController : Controller
 
 public class ApplicationDbContext
 {
-    public object Usuários { get; internal set; }
+    public object Usuários { get; set; }
 }
