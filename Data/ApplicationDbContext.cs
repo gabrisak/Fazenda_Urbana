@@ -1,9 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PIM.Models;
 
-public class ApplicationDbContext : DbContext
+namespace PIM.Data
 {
-    public DbSet<Usuario> Usuarios { get; set; }
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options) { }
 
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) { }
+        public DbSet<Usuario> Usuario { get; set; }
+    }
 }

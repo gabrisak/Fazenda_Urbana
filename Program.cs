@@ -6,14 +6,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using PIM.Models;
 using PIM.Repository;
+using PIM.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-// Configurando a conexão com o banco de dados
+// Carrega as configurações do arquivo appsettings.json
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+// Configuração da conexão com o banco de dados
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -22,6 +22,9 @@ builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 // Registre o serviço de acesso a dados
 builder.Services.AddScoped<DataService>();
+
+// Adiciona os serviços MVC ao contêiner
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -34,16 +37,14 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Inicialize o banco de dados
+// Inicialize o banco de dados (caso precise)
 using (var scope = app.Services.CreateScope())
 {
     var dataService = scope.ServiceProvider.GetRequiredService<DataService>();
