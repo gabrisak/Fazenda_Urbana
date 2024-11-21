@@ -1,0 +1,107 @@
+﻿@model PIM.Models.Usuario
+
+<!-- Profile Start -->
+<div class="container-fluid contact py-5">
+    <div class="container py-5">
+        <div class="p-5 bg-light rounded">
+            <div class="row g-4">
+                <!-- User Information Section -->
+                <div class="col-12">
+                    <div class="text-center mx-auto" style="max-width: 700px;">
+                        <h1 class="text-primary">Perfil do Usuário</h1>
+                    </div>
+                </div>
+
+                <!-- User Details Section -->
+                <div class="col-lg-6 mx-auto">
+                    <div class="h-100 rounded">
+                        <h3 class="text-primary">Informações do Usuário</h3>
+                        <p><strong>Nome Completo:</strong> @Model.Nome</p>
+                        <p><strong>E-mail:</strong> @Model.Email</p>
+                    </div>
+                </div>
+
+                <!-- Password Reset Section -->
+                <div class="col-lg-6 mx-auto mt-5">
+                    <div class="h-100 rounded">
+                        <h3 class="text-primary">Alterar Senha</h3>
+                        <form action="@Url.Action("AlterarSenha", "User", new { id = Model.Id })" method="post">
+                            @if (TempData["SuccessMessage"] != null)
+                            {
+                                    <div class="alert alert-success">
+                                    @TempData["SuccessMessage"]
+                                    </div>
+                            }
+                            @if (TempData["ErrorMessage"] != null)
+                            {
+                                    <div class="alert alert-danger">
+                                    @TempData["ErrorMessage"]
+                                    </div>
+                            }
+
+                            <div class="mb-4">
+                                <label for="senhaAtual" class="form-label">Senha Atual</label>
+                                <input type="password" class="w-100 form-control border-0 py-3" id="senhaAtual" name="senhaAtual" placeholder="Senha Atual" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="novaSenha" class="form-label">Nova Senha</label>
+                                <input type="password" class="w-100 form-control border-0 py-3" id="novaSenha" name="novaSenha" placeholder="Nova Senha" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="confirmarNovaSenha" class="form-label">Confirmar Nova Senha</label>
+                                <input type="password" class="w-100 form-control border-0 py-3" id="confirmarNovaSenha" name="confirmarNovaSenha" placeholder="Confirmar Nova Senha" required>
+                            </div>
+
+                            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary" type="submit">Atualizar Senha</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Order History Section (Only Visual Representation) -->
+                <div class="col-12 mt-5">
+                    <div class="h-100 rounded">
+                        <h3 class="text-primary">Histórico de Pedidos</h3>
+
+                        <!-- Static Example of Order History -->
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID do Pedido</th>
+                                    <th>Data do Pedido</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Example Row 1 -->
+                                <tr>
+                                    <td>12345</td>
+                                    <td>10/11/2024</td>
+                                    <td>Entregue</td>
+                                    <td>R$ 150,00</td>
+                                </tr>
+                                <!-- Example Row 2 -->
+                                <tr>
+                                    <td>12346</td>
+                                    <td>12/11/2024</td>
+                                    <td>Em Processamento</td>
+                                    <td>R$ 200,00</td>
+                                </tr>
+                                <!-- Example Row 3 -->
+                                <tr>
+                                    <td>12347</td>
+                                    <td>14/11/2024</td>
+                                    <td>Cancelado</td>
+                                    <td>R$ 50,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Profile End -->

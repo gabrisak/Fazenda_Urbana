@@ -2,9 +2,9 @@
 
 namespace PIM.Controllers
 {
-    public class ProfileController : Controller
+    public class HomeController : Controller
     {
-        public IActionResult Profile()
+        public IActionResult Index()
         {
             return View();
         }

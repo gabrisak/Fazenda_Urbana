@@ -20,25 +20,55 @@
                 </div>
                 <div class="col-lg-6 mx-auto">
                     <div class="h-100 rounded">
-                        @using (Html.BeginForm("Cadastro", "Account", FormMethod.Post, new { @class = "" }))
+                        @using (Html.BeginForm("NewUser", "User", FormMethod.Post, new { @class = "" }))
                         {
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="form-group">
+                                <div class="form-group">
                                 @Html.LabelFor(model => model.Nome)
                                 @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
                                 @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
+                                </div>
+                                <div class="form-group">
                                 @Html.LabelFor(model => model.Email)
                                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
+                                </div>
+                                <div class="form-group">
                                 @Html.LabelFor(model => model.Senha)
                                 @Html.PasswordFor(model => model.Senha, new { @class = "w-100 form-control border-0 py-3 mb-4" })
                                 @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
-                            </div>
-                            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary" type="submit">Cadastrar</button>
+                                </div>
+                                <div class="form-group">
+                                @Html.LabelFor(model => model.Endereco)
+                                @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                @Html.LabelFor(model => model.Numero)
+                                @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                @Html.LabelFor(model => model.Complemento)
+                                @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                @Html.LabelFor(model => model.Bairro)
+                                @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                @Html.LabelFor(model => model.CEP)
+                                @Html.EditorFor(model => model.CEP, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                @Html.LabelFor(model => model.UF)
+                                @Html.EditorFor(model => model.UF, new { htmlAttributes = new { @class = "w-100 form-control border-0 py-3 mb-4" } })
+                                @Html.ValidationMessageFor(model => model.UF, "", new { @class = "text-danger" })
+                                </div>
+                                <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary" type="submit">Cadastrar</button>
                         }
                         <div class="text-center mt-3">
                             <p>Já tem uma conta? @Html.ActionLink("Faça Login", "UserLogin", "User", null, new { @class = "text-primary" })</p>

@@ -15,20 +15,42 @@
                 <div class="col-12">
                     <div class="text-center mx-auto" style="max-width: 700px;">
                         <h1 class="text-primary">Acessar Conta</h1>
+                        <p>Insira suas credenciais para acessar sua conta.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 mx-auto">
                     <div class="h-100 rounded">
-                        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "" }))
+
+                        <!-- Exibe mensagens de erro ou sucesso -->
+                        @if (TempData["SuccessMessage"] != null)
                         {
-                                <div class="form-group">
-                                    <input type="email" name="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque seu E-mail" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="senha" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque sua Senha" required>
-                                </div>
-                                <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary" type="submit">Entrar</button>
+                            <div class="alert alert-success text-center">
+                                @TempData["SuccessMessage"]
+                            </div>
                         }
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <div class="alert alert-danger text-center">
+                                @TempData["ErrorMessage"]
+                            </div>
+                        }
+
+                        <!-- Formulário de Login -->
+                        @using (Html.BeginForm("UserLogin", "User", FormMethod.Post, new { @class = "" }))
+                        {
+                            @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" name="email" id="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque seu e-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" name="senha" id="senha" class="w-100 form-control border-0 py-3 mb-4" placeholder="Coloque sua senha" required>
+                            </div>
+                            <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary" type="submit">Entrar</button>
+                        }
+
                         <div class="text-center mt-3">
                             <a href="@Url.Action("ForgotUser", "User")" class="text-primary">Esqueceu a senha?</a>
                         </div>
