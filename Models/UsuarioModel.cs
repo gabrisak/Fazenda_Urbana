@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace PIM.Models
 {
@@ -23,6 +24,8 @@ namespace PIM.Models
         public string Complemento { get; set; }
         public string Bairro { get; set; }
         public string UF { get; set; }
+        
+        [DisplayName("Telefone")]
         public string Numero { get; set; }
         public string CEP { get; set; }
     }

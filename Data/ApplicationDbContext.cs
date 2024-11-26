@@ -44,10 +44,10 @@ namespace PIM.Data
                       .HasMaxLength(100);
 
                 entity.Property(u => u.Numero)
-                      .HasMaxLength(100);
+                      .HasMaxLength(15);
 
                 entity.Property(u => u.CEP)
-                      .HasMaxLength(100);
+                      .HasMaxLength(9);
 
                 entity.Property(u => u.UF)
                       .HasMaxLength(2);
